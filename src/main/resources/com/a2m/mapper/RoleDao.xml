@@ -1,0 +1,22 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="com.example.dao.RoleDao">
+	<select id="getRoleNames" parameterType="Long" resultType="String">
+		SELECT ROLE_NAME FROM ROLE WHERE ACCOUNT_ID = #{account_id}
+	</select>
+	<insert id="insert" parameterType="com.example.entities.Role">
+		INSERT INTO Role (ID, ACCOUNT_ID, ROLE_NAME) VALUES
+		(#{id}, #{account_id}, #{role_name});
+	</insert>
+
+<!-- 	<select id="selectById" parameterType="Long"
+		resultType="com.example.spmybtis.entities.User">
+		SELECT * FROM USER WHERE ID = #{id};
+	</select>s
+	<resultMap id="result"
+		type="com.example.spmybtis.entities.User">
+		<result property="id" column="ID" />
+		<result property="name" column="NAME" />
+	</resultMap> -->
+</mapper>
